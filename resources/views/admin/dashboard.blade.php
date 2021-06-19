@@ -2,6 +2,10 @@
 @section('css')
 <!-- DataTables -->
 <link rel="stylesheet" href="{{url('plugins/datatables-bs4/css/dataTables.bootstrap4.css') }}">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" ></script>
+    <!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"  /-->
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 @endsection
 @section('title', 'Beranda')
 
@@ -22,6 +26,19 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Total Terdaftar</span>
+                <span class="info-box-number">{{$counterdaftar}} Peserta</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box shadow-lg">
+              <span class="info-box-icon bg-success"><i class="far fa-flag"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Total Pendaftar</span>
                 <span class="info-box-number">{{$counpendaftar}} Peserta</span>
               </div>
               <!-- /.info-box-content -->
@@ -48,10 +65,11 @@
                                 <tr>
                                     <th> NISN </th>
                                     <th> Nama </th>
-                                    <th> Tempat Lahir </th>
-                                    <th> Tanggal Lahir </th>
-                                    <th> Pilihan 1 </th>
-                                    <th> Pilihan 2 </th>
+                                    <th> Tempat, Tanggal Lahir </th>
+                                    <th> Jurusan </th>
+                                    <th> Verifikasi </th>
+                                    <!--th> Pilihan 2 </th-->
+                                    <th> Status </th>
                                     <th> Aksi </th>
 
                                 </tr>
@@ -107,16 +125,22 @@
                                     <tr>
                                         <td>{{ $siswa->nisn }}</td>
                                         <td>{{ $siswa->nama_lengap }}</td>
-                                        <td>{{ $siswa->tempat_lahir }}</td>
-                                        <td>{{ $siswa->tgl_lahir }}</td>
+                                        <td>{{ $siswa->tempat_lahir }}, {{ $siswa->tgl_lahir }}</td>
                                         <td>{{ $jurusan1 }}</td>
-                                        <td>{{ $jurusan2 }}</td>
+                                        <td><a class="btn btn-info" href="{{ route('dashboard.show',$siswa->id) }}">Verifikasi</a></td>
+                                        <!--td>{{ $jurusan2 }}</td-->
+                                        <td>
+                                        <input data-id="{{$siswa->id}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $siswa->status ? 'checked' : '' }}>
+                                        </td>
                                         <td>
                                             <form action="{{ route('dashboard.destroy',$siswa->id) }}" method="POST">
                             
                                                 <a class="btn btn-info" href="{{ route('dashboard.show',$siswa->id) }}">Lihat</a>
                                 
                                                 <a class="btn btn-primary" href="{{ route('dashboard.edit',$siswa->id) }}">Ubah</a>
+                                                <!--button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#vertically-centered">
+                                                    Vertically centered
+                                                </button-->
                             
                                                 @csrf
                                                 @method('DELETE')
@@ -142,7 +166,7 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+    <!--link rel="stylesheet" href="/css/admin_custom.css"-->
 
 @stop
 
@@ -155,5 +179,22 @@
         $('#datatable').DataTable();
     })
 </script>
-
+<script>
+  $(function() {
+    $('.toggle-class').change(function() {
+        var status = $(this).prop('checked') == true ? 1 : 0; 
+        var siswa_id = $(this).data('id'); 
+         
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: '/changeStatus',
+            data: {'status': status, 'siswa_id': siswa_id},
+            success: function(data){
+              console.log(data.success)
+            }
+        });
+    })
+  })
+</script>
 @endsection

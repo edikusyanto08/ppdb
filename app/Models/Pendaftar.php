@@ -84,7 +84,7 @@ class Pendaftar extends Authenticatable
         's5inggris',
         's5matematika',
         's5ipa',
-        'statusdaftar',
+        'status',
         'keterangan',
         'kabupaten',
         'provinsi',

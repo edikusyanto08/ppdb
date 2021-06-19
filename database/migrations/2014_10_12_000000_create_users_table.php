@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('foto');
             $table->string('username');
             $table->string('is_admin');
-            $table->string('nisn');
+            $table->string('nisn')->unique();
             $table->string('nowa');
             $table->string('sekolahasal');
             $table->timestamp('email_verified_at')->nullable();

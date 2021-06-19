@@ -71,7 +71,9 @@
         <div class="col-xl-5 col-lg-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
           <h1>SMKN 5 Kabupaten Tangerang</h1>
           <h2>Sistem Informasi Pendaftaran Peserta Didik Baru (SIPeDa)<br>Tahun Pelajaran <?php echo date('Y');?>/<?php echo date('Y')+1;?></h2>
+            @if($tutupdaftar == 1)
           <div><a href="{{ route('register') }}" class="btn-get-started scrollto">Daftar di Sini</a></div>
+          @endif
         </div>
         <div class="col-xl-4 col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="150">
           <img src="{{ asset('frontend/img/hero-img.png') }}" class="img-fluid animated" alt="">
@@ -107,7 +109,9 @@
               <li><i class="icofont-check-circled"></i> Calon Pendaftar mengikuti Tes Potensi Akademik.</li>
               <li><i class="icofont-check-circled"></i> Calon Pendaftar menunggu hasil seleksi pada tanggal 30 Juni 2021 melalui laman https://ppdb.bantenprov.go.id dan https://ppdb.smkn5kabtangerangmauk.sch.id</li>
             </ul>
+            @if($tutupdaftar == '1')
             <a href="{{ url('/register') }}" class="read-more">Daftar di Sini <i class="icofont-user-plus"></i></a>
+            @endif
           </div>
         </div>
 

@@ -26,9 +26,13 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout']);
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+Route::get('/dashboardadmin', [App\Http\Controllers\DashboardAdminController::class, 'index'])->name('dashboardadmin');
 Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
 Route::get('/formulir', [App\Http\Controllers\Pendaftar\PendaftarController::class, 'formulir']);
 Route::get('/buktidaftar', [App\Http\Controllers\Pendaftar\PendaftarController::class, 'cetak']);
+Route::get('/changeStatus', [App\Http\Controllers\DashboardAdminController::class, 'changePendaftarStatus']);
+Route::get('/verifikasi', [App\Http\Controllers\Admin\VerifikasiController::class, 'verifikasi']);
+//Route::get('change-status', 'DashboardAdminController@changeStatus');
 
 
 Route::get('/pendaftar/daftar', [App\Http\Controllers\Pendaftar\PendaftarController::class, 'daftar']);

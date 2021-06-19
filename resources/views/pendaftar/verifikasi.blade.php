@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Formulir || PPDB SMKN 5 Kab. Tangerang')
+@section('title', 'Verifikasi Data || PPDB SMKN 5 Kab. Tangerang')
 
 
 @section('content')
@@ -9,12 +9,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Formulir Ubah Data {{ $pendaftar->nama_lengap }}</h1>
+            <h1>Verifikasi Data  <b>{{ $pendaftar->nama_lengap }}</b></h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Beranda</a></li>
-              <li class="breadcrumb-item active">Formulir</li>
+              <li class="breadcrumb-item"><a href="{{ url('/dashboardadmin') }}">Beranda</a></li>
+              <li class="breadcrumb-item active">Verifikasi</li>
             </ol>
           </div>
         </div>
@@ -30,7 +30,7 @@
             <!-- general form elements disabled -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Data Diri </h3>
+                <h3 class="card-title">Data Peserta Didik </h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">

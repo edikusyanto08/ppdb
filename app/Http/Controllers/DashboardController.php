@@ -28,77 +28,107 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        if(Auth::user()->is_admin == 1){
+            return redirect('/dashboardadmin');
+        }
+        $cek1 = Auth::user();
+        $cek2 = $cek1->id;
+        $cek = DB::table('pendaftar')->where('user_id', $cek2)->first();
+        if($cek == NULL){
+            return redirect('/formulir');
+        }
         
-        $user = Auth::user()->id;
-        $jurusane = DB::table('pendaftar')->where('user_id', $user)->first();
-        $jurusan = $jurusane->jurusan1;
-        $linkwa = $jurusan;
-        if($jurusan == 1){
-            $jurusan = "Teknik Pemesinan";
-        } elseif($jurusan == 2){
-            $jurusan = "Teknik Kendaraan Ringan Otomotif";
-        } elseif($jurusan == 3){
-            $jurusan = "Teknik dan Bisnis Sepeda Motor";
-        } elseif($jurusan == 4){
-            $jurusan = "Teknik Komputer dan Jaringan";
-        } elseif($jurusan == 5){
-            $jurusan = "Multimedia";
-        } elseif($jurusan == 6){
-            $jurusan = "Rekayasa Prangkat Lunak";
-        } elseif($jurusan == 7){
-            $jurusan = "Otomatisasi dan Tata Kelola Perkantoran";
-        } elseif($jurusan == 8){
-            $jurusan = "Akuntansi dan Keuangan Lembaga";
-        } elseif($jurusan == 9){
-            $jurusan = "Agribisnis Pengolahan Hasil Perikanan";
-        } elseif($jurusan == 10){
-            $jurusan = "Perhotelan";
-        };
+        
+        if(Auth::user()->is_admin == 0){
+            
+
+            $user = Auth::user();
+            $user_id = $user->id;
+            $siswa = DB::table('pendaftar')->where('user_id', $user_id)->first();
+            $id_siswa = $siswa->id;
+            if($siswa == NULL){
+                return redirect('/formulir');
+            }
+            $jurusan = $siswa->jurusan1;
+           // $jurusan = $jurusane;
+            $linkwa = $jurusan;
+            if($jurusan == 1){
+                $jurusan = "Teknik Pemesinan";
+            } elseif($jurusan == 2){
+                $jurusan = "Teknik Kendaraan Ringan Otomotif";
+            } elseif($jurusan == 3){
+                $jurusan = "Teknik dan Bisnis Sepeda Motor";
+            } elseif($jurusan == 4){
+                $jurusan = "Teknik Komputer dan Jaringan";
+            } elseif($jurusan == 5){
+                $jurusan = "Multimedia";
+            } elseif($jurusan == 6){
+                $jurusan = "Rekayasa Prangkat Lunak";
+            } elseif($jurusan == 7){
+                $jurusan = "Otomatisasi dan Tata Kelola Perkantoran";
+            } elseif($jurusan == 8){
+                $jurusan = "Akuntansi dan Keuangan Lembaga";
+            } elseif($jurusan == 9){
+                $jurusan = "Agribisnis Pengolahan Hasil Perikanan";
+            } elseif($jurusan == 10){
+                $jurusan = "Perhotelan";
+            };
 
 
-        if($linkwa == 1){
-            $linkwa = "https://chat.whatsapp.com/C3AyRuveDocBxSL0MCmizP";
-        } elseif($linkwa == 2){
-            $linkwa = "https://chat.whatsapp.com/IljMrNjOe2mBfyh46NaQon";
-        } elseif($linkwa == 3){
-            $linkwa = "https://chat.whatsapp.com/LevNJowqX4a3qTw2zBTw5P";
-        } elseif($linkwa == 4){
-            $linkwa = "https://chat.whatsapp.com/IKUrORlKBhIHYNpnnFNsk5";
-        } elseif($linkwa == 5){
-            $linkwa = "https://chat.whatsapp.com/GMoNaf0vqzECRDZPWxVSnI";
-        } elseif($linkwa == 6){
-            $linkwa = "https://chat.whatsapp.com/IolDjfYGg60FkTsuEZuZtL";
-        } elseif($linkwa == 7){
-            $linkwa = "https://chat.whatsapp.com/GBbMoLIfrKNHqLyNfdvTE6";
-        } elseif($linkwa == 8){
-            $linkwa = "https://chat.whatsapp.com/HJmXwPcGixwIaIpkkF2Ikr";
-        } elseif($linkwa == 9){
-            $linkwa = "https://chat.whatsapp.com/Gr3CKVoAe4W7pUIm86Gxyk";
-        } elseif($linkwa == 10){
-            $linkwa = "https://chat.whatsapp.com/D4VmrupbTMXHYmafqljpIT";
-        };
-        $counpendaftar = DB::table('pendaftar')->count();
+            if($linkwa == 1){
+                $linkwa = "https://chat.whatsapp.com/C3AyRuveDocBxSL0MCmizP";
+            } elseif($linkwa == 2){
+                $linkwa = "https://chat.whatsapp.com/IljMrNjOe2mBfyh46NaQon";
+            } elseif($linkwa == 3){
+                $linkwa = "https://chat.whatsapp.com/LevNJowqX4a3qTw2zBTw5P";
+            } elseif($linkwa == 4){
+                $linkwa = "https://chat.whatsapp.com/IKUrORlKBhIHYNpnnFNsk5";
+            } elseif($linkwa == 5){
+                $linkwa = "https://chat.whatsapp.com/GMoNaf0vqzECRDZPWxVSnI";
+            } elseif($linkwa == 6){
+                $linkwa = "https://chat.whatsapp.com/IolDjfYGg60FkTsuEZuZtL";
+            } elseif($linkwa == 7){
+                $linkwa = "https://chat.whatsapp.com/GBbMoLIfrKNHqLyNfdvTE6";
+            } elseif($linkwa == 8){
+                $linkwa = "https://chat.whatsapp.com/HJmXwPcGixwIaIpkkF2Ikr";
+            } elseif($linkwa == 9){
+                $linkwa = "https://chat.whatsapp.com/Gr3CKVoAe4W7pUIm86Gxyk";
+            } elseif($linkwa == 10){
+                $linkwa = "https://chat.whatsapp.com/D4VmrupbTMXHYmafqljpIT";
+            };
+
+            
+        } elseif(Auth::user()->is_admin == 1){
+            $jurusane = DB::table('pendaftar')->where('id')->first();
+            //$jurusan = $jurusane->jurusan1;
+        }
+        
+        
+        
+        $counterdaftar = DB::table('pendaftar')->count()-1;
+        $counpendaftar = DB::table('users')->count();
         $pendaftar = Pendaftar::all();
         $jurusans = Jurusan::all();
         if(Auth::user()->is_admin == 1){
             return view('admin.dashboard',[
+                'counterdaftar'=>$counterdaftar,
                 'counpendaftar'=>$counpendaftar,
-                'jurusan' => $jurusan,
-                'jurusane' => $jurusane,
+                //'jurusan' => $jurusan,
+                //'siswa' => $siswa,
                 'jurusans' => $jurusans,
-                'linkwa' => $linkwa,
-                'pendaftar' => $pendaftar
+                //'linkwa' => $linkwa,
+                'pendaftar' => $pendaftar,
+                
             ]);
         } else{
             return view('pendaftar.dashboard',[
                 'counpendaftar'=>$counpendaftar,
                 'jurusan' => $jurusan,
-                'jurusane' => $jurusane,
-                'linkwa' => $linkwa
+                'siswa' => $siswa,
+                'linkwa' => $linkwa,
+                //'sesi' => $sesi
             ]);
-        }
-
-        ;
+        };
     }
 
 

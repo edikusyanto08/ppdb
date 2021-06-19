@@ -59,6 +59,7 @@
 <!-- End Kop Surat -------------------->
 
 <!-- Start ISI SURAT --------------------->
+<div align="right"> Rev.01<div>
 <div class="frame">
 <p class="judul" >
 <u style="letter-spacing: 5px;"><strong>TANDA BUKTI<br></strong></u>
@@ -69,20 +70,81 @@
 <p>
 <table class="isi3">
 <tbody>
+<?php
+$jurusan1 = $siswa->jurusan1;
+$jurusan2 = $siswa->jurusan2;
+if($jurusan1 == 1 ){
+	$jurusan1 = "Teknik Pemesinan";
+} elseif($jurusan1 == 2 ){
+	$jurusan1 = "Teknik Kendaraan Ringan Otomotif";
+} elseif($jurusan1 == 3 ){
+	$jurusan1 = "Teknik dan Bisnis Sepeda Motor";
+} elseif($jurusan1 == 4){
+	$jurusan1 = "Teknik Komputer dan Jaringan";
+} elseif($jurusan1 == 5){
+	$jurusan1 = "Multimedia";
+} elseif($jurusan1 == 6){
+	$jurusan1 = "Rekayasa Prangkat Lunak";
+} elseif($jurusan1 == 7){
+	$jurusan1 = "Otomatisasi dan Tata Kelola Perkantoran";
+} elseif($jurusan1 == 8){
+	$jurusan1 = "Akuntansi dan Keuangan Lembaga";
+} elseif($jurusan1 == 9){
+	$jurusan1 = "Agribisnis Pengolahan Hasil Perikanan";
+} elseif($jurusan1 == 10){
+	$jurusan1 = "Perhotelan";
+};
+if($jurusan2 == 1 ){
+	$jurusan2 = "Teknik Pemesinan";
+} elseif($jurusan2 == 2 ){
+	$jurusan2 = "Teknik Kendaraan Ringan Otomotif";
+} elseif($jurusan2 == 3 ){
+	$jurusan2 = "Teknik dan Bisnis Sepeda Motor";
+} elseif($jurusan2 == 4){
+	$jurusan2 = "Teknik Komputer dan Jaringan";
+} elseif($jurusan2 == 5){
+	$jurusan2 = "Multimedia";
+} elseif($jurusan2 == 6){
+	$jurusan2 = "Rekayasa Prangkat Lunak";
+} elseif($jurusan2 == 7){
+	$jurusan2 = "Otomatisasi dan Tata Kelola Perkantoran";
+} elseif($jurusan2 == 8){
+	$jurusan2 = "Akuntansi dan Keuangan Lembaga";
+} elseif($jurusan2 == 9){
+	$jurusan2 = "Agribisnis Pengolahan Hasil Perikanan";
+} elseif($jurusan2 == 10){
+	$jurusan2 = "Perhotelan";
+};
+?>
     <tr>
 		<td align=left style="width:230px; height:15px ">NISN</td>
 		<td>:</td>
-    	<td style="width:400px; ">{{ $user->nisn }}</td>
+    	<td style="width:400px; ">{{ $siswa->nisn }}</td>
 	</tr>
 	<tr>
 		<td align=left style="width:230px; height:15px ">Nama</td>
 		<td>:</td>
-    	<td style="width:400px; ">{{ $user->name }}</td>
+    	<td style="width:400px; ">{{ $siswa->nama_lengap }}</td>
 	</tr>
 	<tr>
-		<td align=left style="width:230px; height:15px ">Tanggal Daftar</td>
+		<td align=left style="width:230px; height:15px ">Tanggal Terdaftar</td>
 		<td>:</td>
-    	<td style="width:400px; ">{{ $user->created_at }}</td>
+    	<td style="width:400px; ">{{ $siswa->created_at }}</td>
+	</tr>
+	<tr>
+		<td align=left style="width:230px; height:15px ">Sekolah Asal</td>
+		<td>:</td>
+    	<td style="width:400px; ">{{ $siswa->sekolahasal }}</td>
+	</tr>
+	<tr>
+		<td align=left style="width:230px; height:15px ">Pilihan Jurusan 1</td>
+		<td>:</td>
+    	<td style="width:400px; ">{{ $jurusan1 }}</td>
+	</tr>
+	<tr>
+		<td align=left style="width:230px; height:15px ">Pilihan Jurusan 2</td>
+		<td>:</td>
+    	<td style="width:400px; ">{{ $jurusan2 }}</td>
 	</tr>
 </tbody>
 </table>
@@ -90,7 +152,7 @@
 	$sesi1 = " Pukul 07.30 sampai 09.30 Wib.";
 	$sesi2 = " Pukul 10.00 sampai 12.00 Wib.";
 	$sesi3 = " Pukul 13.00 sampai 15.00 Wib.";
-	$user_id = $user->id;
+	$user_id = $siswa->id;
 	if($user_id >=1 && $user_id <= 300){
 		$tanggaltes = "21 Juni 2021";
 	} elseif ($user_id >= 301 && $user_id <= 600){
@@ -99,44 +161,73 @@
 		$tanggaltes = "23 Juni 2021";
 	} elseif ($user_id >= 901 && $user_id <= 1200){
 		$tanggaltes = "24 Juni 2021";
-	} elseif ($user_id >= 1201){
+	} elseif ($user_id >= 1201 && $user_id <= 1500){
+		$tanggaltes = "25 Juni 2021";
+	} elseif ($user_id >= 1501 && $user_id <= 1600){
+		$tanggaltes = "21 Juni 2021";
+	} elseif ($user_id >= 1601 && $user_id <= 1700){
+		$tanggaltes = "22 Juni 2021";
+	} elseif ($user_id >= 1701 && $user_id <= 1800){
+		$tanggaltes = "23 Juni 2021";
+	} elseif ($user_id >= 1801 && $user_id <= 1900){
+		$tanggaltes = "24 Juni 2021";
+	} elseif ($user_id >= 1901){
 		$tanggaltes = "25 Juni 2021";
 	};
-
+	$user_id = $siswa->id;
+	//$sesi ="";
 	if ($user_id >=1 && $user_id <= 100){
-		$sesi = $sesi1;
-	} elseif ($user_id >=101 && $user_id <= 200){
-		$sesi = $sesi2;
-	} elseif ($user_id >=201 && $user_id <=300){
-		$sesi = $sesi3;
-	} elseif ($user_id >=301 && $user_id <= 400){
-		$sesi = $sesi1;
-	} elseif ($user_id >=401 && $user_id <= 500){
-		$sesi = $sesi2;
-	} elseif ($user_id >=501 && $user_id <=600){
-		$sesi = $sesi3;
-	} elseif ($user_id >=701 && $user_id <= 800){
-		$sesi = $sesi1;
-	} elseif ($user_id >=801 && $user_id <= 900){
-		$sesi = $sesi2;
-	} elseif ($user_id >=901 && $user_id <=1000){
-		$sesi = $sesi3;
-	} elseif ($user_id >=1001 && $user_id <= 1100){
-		$sesi = $sesi1;
-	} elseif ($user_id >=1101 && $user_id <= 1200){
-		$sesi = $sesi2;
-	} elseif ($user_id >=1201 && $user_id <=1300){
-		$sesi = $sesi3;
-	} elseif ($user_id >=1401 && $user_id <= 1500){
-		$sesi = $sesi1;
-	} elseif ($user_id >=1501 && $user_id <= 1600){
-		$sesi = $sesi2;
-	} elseif ($user_id >=1601 && $user_id <=1700){
-		$sesi = $sesi3;
-	}
+                $sesi = $sesi1;
+            } elseif ($user_id >=101 && $user_id<= 200){
+                $sesi = $sesi2;
+            } elseif ($user_id >=201 && $user_id<= 300){
+                $sesi = $sesi3;
+            } elseif ($user_id >=301 && $user_id<= 400){
+                $sesi = $sesi1;
+            } elseif ($user_id >=401 && $user_id<= 500){
+                $sesi = $sesi2;
+            } elseif ($user_id >=501 && $user_id<= 600){
+                $sesi = $sesi3;
+            } elseif ($user_id >=601 && $user_id<= 700){
+                $sesi = $sesi3;
+            } elseif ($user_id >=701 && $user_id<= 800){
+                $sesi = $sesi1;
+            } elseif ($user_id >=801 && $user_id<= 900){
+                $sesi = $sesi2;
+            } elseif ($user_id >=901 && $user_id<=1000){
+                $sesi = $sesi3;
+            } elseif ($user_id >=1001 && $user_id<= 1100){
+                $sesi = $sesi1;
+            } elseif ($user_id >=1101 && $user_id<= 1200){
+                $sesi = $sesi2;
+            } elseif ($user_id >=1201 && $user_id<= 1300){
+                $sesi = $sesi3;
+            } elseif ($user_id >=1301 && $user_id<= 1400){
+                $sesi = $sesi3;
+            } elseif ($user_id >= 1401 && $user_id<= 1500){
+                $sesi = $sesi1;
+            } elseif ($user_id >= 1501 && $user_id<= 1600){
+                $sesi = $sesi2;
+            } elseif ($user_id >= 1601 && $user_id<= 1700){
+                $sesi = $sesi3;
+            } elseif ($user_id >= 1701 && $user_id<= 1800){
+                $sesi = $sesi1;
+            } elseif ($user_id >= 1801 && $user_id<= 1900){
+                $sesi = $sesi2;
+            } elseif ($user_id >= 1901 && $user_id<= 2000){
+                $sesi = $sesi3;
+            } elseif ($user_id >= 2001 && $user_id<= 2100){
+                $sesi = $sesi1;
+            } elseif ($user_id >= 2101 && $user_id<= 2200){
+                $sesi = $sesi2;
+            } elseif ($user_id >= 2201 && $user_id<= 2300){
+                $sesi = $sesi3;
+            } elseif ($user_id >= 2301){
+                $sesi = "Mohon Maaf, Anda belum mendapatkan jadwal Sesi, Silakan hubungi panitia PPDB SMKN 5 Kabupaten Tangerang";
+            };
+	
 		
 
-	$uraian_jadwal = $tanggaltes && $sesi;
 	?>
 
 <div class="strong">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Catatan: </div>
@@ -150,7 +241,7 @@
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. Fotokopi KTP Orang Tua<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. Fotokopi Kartu Keluarga<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5. Fotokopi Rapor Semester 1 – 5 (Dilegalisasi)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6. Sertifikat/Piagam Prestasi Non Akademik (Jika Ada)<Xbr>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6. Sertifikat/Piagam Prestasi Non Akademik (Jika Ada)<br>
 	<b>Wajib mematuhi Protokol Kesehatan Covid-19</b>
 	</td>
   </tr>

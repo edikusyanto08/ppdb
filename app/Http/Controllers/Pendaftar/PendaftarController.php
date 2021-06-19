@@ -38,6 +38,12 @@ class PendaftarController extends Controller
     }
     public function formulir()
     {
+        $cek1 = Auth::user();
+        $cek2 = $cek1->id;
+        $cek = DB::table('pendaftar')->where('user_id', $cek2)->first();
+        if(!$cek == NULL){
+            return redirect('/dashboard');
+        }
         $terdaftar = DB::table('users')->join('pendaftar', 'users.id', '=','pendaftar.user_id')->get();
         $user = Auth::user();
         $user_id = $user->id;
@@ -48,6 +54,8 @@ class PendaftarController extends Controller
                 'jurusans' => $jurusans,
                 compact('terdaftar')
             ]);
+        
+            
         
     }
     public function daftar(Request $request)
@@ -130,7 +138,7 @@ class PendaftarController extends Controller
         $Pendaftar->s5ipa = $request->s5ipa;
         $Pendaftar->nohp = $user->nowa;
         $Pendaftar->email = $user->email;
-        $Pendaftar->statusdaftar = '1';
+        $Pendaftar->status = '0';
 
         $Pendaftar->save();
 
@@ -147,9 +155,11 @@ class PendaftarController extends Controller
     }
     public function cetak(){
         $user = Auth::user();
+        $user_ids = $user->id;
+        $siswa = DB::table('pendaftar')->where('user_id', $user_ids)->first();
         //$pendaftar = Pendaftar::get('user_id')->with(' $user->id');
 
-        $pdf = PDF::loadview('pendaftar.buktidaftar',['user'=>$user]);
+        $pdf = PDF::loadview('pendaftar.buktidaftar',['siswa'=>$siswa]);
     	return $pdf->download('Bukti-Pendaftaran.pdf');
         //return view('pendaftar.buktidaftar',['user' => $users]);
 

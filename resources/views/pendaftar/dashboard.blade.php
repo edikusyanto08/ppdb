@@ -78,7 +78,7 @@
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
-          <a href="/buktidaftar" >
+          <a href="buktidaftar" >
 
           <div class="col-lg-3 col-6">
             <!-- small box -->
@@ -91,7 +91,7 @@
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
               </div>
-              <a href="/buktidaftar" class="small-box-footer">Cetak di Sini <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="buktidaftar" class="small-box-footer">Cetak di Sini <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div><a>
         </div>
@@ -118,7 +118,7 @@
                        alt="User profile picture">
                 </div>
 
-                <h3 class="profile-username text-center">{{$jurusane->nama_lengap}}</h3>
+                <h3 class="profile-username text-center">{{$siswa->nama_lengap}}</h3>
 
                 <p class="text-muted text-center">{{$jurusan}}</p>
 
@@ -154,21 +154,21 @@
                 <strong><i class="fas fa-birthday-cake mr-1"></i> Date of birth</strong>
 
                 <p class="text-muted">
-                {{$jurusane->tempat_lahir}}, {{date($jurusane->tgl_lahir)}}
+                {{$siswa->tempat_lahir}}, {{date($siswa->tgl_lahir)}}
                 </p>
 
                 <hr>
 
                 <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
 
-                <p class="text-muted">{{$jurusane->alamat}}, Rt. {{$jurusane->rt}}, Rw. {{$jurusane->rw}}, {{$jurusane->desa}}, {{$jurusane->kecamatan}}</p>
+                <p class="text-muted">{{$siswa->alamat}}, Rt. {{$siswa->rt}}, Rw. {{$siswa->rw}}, {{$siswa->desa}}, {{$siswa->kecamatan}}</p>
 
                 <hr>
 
                 <strong><i class="fas fa-pencil-alt mr-1"></i> School Origin</strong>
 
                 <p class="text-muted">
-                  <span class="tag tag-danger">{{$jurusane->sekolahasal}}</span>
+                  <span class="tag tag-danger">{{$siswa->sekolahasal}}</span>
 
                 </p>
 
@@ -176,7 +176,7 @@
 
                 <strong><i class="far fa-file-alt mr-1"></i> National Student Identification Number</strong>
 
-                <p class="text-muted">{{$jurusane->nisn}}</p>
+                <p class="text-muted">{{$siswa->nisn}}</p>
               </div>
               <!-- /.card-body -->
             </div>

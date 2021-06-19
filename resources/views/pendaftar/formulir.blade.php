@@ -55,7 +55,7 @@
                       <!-- select -->
                       <div class="form-group">
                         <label>Jenis Kelamin</label>
-                        <select name="jenis_kelamin"  class="form-control">
+                        <select required name="jenis_kelamin"  class="form-control">
                           <option value="">==== Pilih Jenis Kelamin ====</option>
                           <option>Laki-laki</option>
                           <option>Perempuan</option>
@@ -97,7 +97,7 @@
                   <div class="col-sm-6">
                     <div class="form-group">
                         <label>Agama</label>
-                        <select name="agama" class="form-control">
+                        <select required name="agama" class="form-control">
                           <option value="">==== Pilih Agama ====</option>
                           <option>Islam</option>
                           <option>Kristen</option>
@@ -155,7 +155,7 @@
                   <div class="col-sm-6">
                     <div class="form-group">
                         <label>Tempat Tinggal</label>
-                        <select name="tempat_tinggal" class="form-control">
+                        <select required name="tempat_tinggal" class="form-control">
                           <option value="">==== Pilih Tempat Tinggal ====</option>
                           <option>Bersama orang tua</option>
                           <option>Wali</option>
@@ -210,7 +210,7 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Pendidikan</label>
-                        <select name="ayahpendidikan" class="form-control">
+                        <select required name="ayahpendidikan" class="form-control">
                           <option value="">==== Pilih Jenjang Pendidikan ====</option>
                           <option>PAUD</option>
                           <option>TK / SEDERAJAT</option>
@@ -239,7 +239,7 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Pekerjaan</label>
-                        <select name="ayahpekerjaan" class="form-control">
+                        <select required name="ayahpekerjaan" class="form-control">
                           <option value="">==== Pilih Pekerjaan ====</option>
                           <option>TIDAK BEKERJA</option>
                           <option>SUDAH MENINGGAL</option>
@@ -262,7 +262,7 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Penghasilan bulanan</label>
-                        <select name="ayahpenghasilan" class="form-control">
+                        <select required name="ayahpenghasilan" class="form-control">
                           <option value="">==== Pilih Penghasilan ====</option>
                           <option>< Rp. 500.000</option>
                           <option>Rp. 500.000-Rp. 999.999</option>
@@ -307,7 +307,7 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Pendidikan</label>
-                        <select name="ibupendidikan" class="form-control">
+                        <select required name="ibupendidikan" class="form-control">
                           <option value="">==== Pilih Jenjang Pendidikan ====</option>
                           <option>PAUD</option>
                           <option>TK / SEDERAJAT</option>
@@ -336,7 +336,7 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Pekerjaan</label>
-                        <select name="ibupekerjaan" class="form-control">
+                        <select required name="ibupekerjaan" class="form-control">
                           <option value="">==== Pilih Pekerjaan ====</option>
                           <option>TIDAK BEKERJA</option>
                           <option>SUDAH MENINGGAL</option>
@@ -360,7 +360,7 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Penghasilan bulanan</label>
-                        <select name="ibupenghasilan" class="form-control">
+                        <select required name="ibupenghasilan" class="form-control">
                           <option value="">==== Pilih Penghasilan ====</option>
                           <option>< Rp. 500.000</option>
                           <option>Rp. 500.000-Rp. 999.999</option>
@@ -405,7 +405,7 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Pendidikan</label>
-                        <select name="walipendidikan" class="form-control">
+                        <select required name="walipendidikan" class="form-control">
                           <option value="">==== Pilih Jenjang Pendidikan ====</option>
                           <option>PAUD</option>
                           <option>TK / SEDERAJAT</option>
@@ -433,7 +433,7 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Pekerjaan</label>
-                        <select name="walipekerjaan" class="form-control">
+                        <select required name="walipekerjaan" class="form-control">
                           <option value="0">==== Pilih Pekerjaan ====</option>
                           <option>TIDAK BEKERJA</option>
                           <option>SUDAH MENINGGAL</option>
@@ -456,7 +456,7 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Penghasilan bulanan</label>
-                        <select name="walipenghasilan" class="form-control">
+                        <select required name="walipenghasilan" class="form-control">
                           <option value="0">==== Pilih Penghasilan ====</option>
                           <option>< Rp. 500.000</option>
                           <option>Rp. 500.000-Rp. 999.999</option>
@@ -488,8 +488,8 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Pilihan Jurusan 1</label>
-                        <select class="form-control" id="jurusan1-option" name="jurusan1">
-                        <option value="0">==== Pilih Jurusan Pilihan 1 ====</option>
+                        <select required class="form-control" id="jurusan1-option" name="jurusan1">
+                        <option value="">==== Pilih Jurusan Pilihan 1 ====</option>
                         @foreach ($jurusans as $jurusan)
                             <option value="{{ $jurusan->id }}">{{ $jurusan->namajurusan }}</option>
                         @endforeach
@@ -501,8 +501,8 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Pilihan Jurusan 2</label>
-                        <select class="form-control" id="jurusan2-option" name="jurusan2">
-                        <option value="0">==== Pilih Jurusan Pilihan 2 ====</option>
+                        <select required class="form-control" id="jurusan2-option" name="jurusan2">
+                        <option value="">==== Pilih Jurusan Pilihan 2 ====</option>
                         @foreach ($jurusans as $jurusan)
                             <option value="{{ $jurusan->id }}">{{ $jurusan->namajurusan }}</option>
                         @endforeach
@@ -515,7 +515,7 @@
 
                 <div class="card card-success">
                   <div class="card-header">
-                    <h3 class="card-title">Nilai Semester 1</h3>
+                    <h3 class="card-title">Nilai Pengetahuan Semester 1</h3>
                   </div>
                 </div>
                 <div class="card-body">
@@ -551,7 +551,7 @@
 
                 <div class="card card-success">
                   <div class="card-header">
-                    <h3 class="card-title">Nilai Semester 2</h3>
+                    <h3 class="card-title">Nilai Pengetahuan Semester 2</h3>
                   </div>
                 </div>
                 <div class="card-body">
@@ -586,7 +586,7 @@
                 </div>
                 <div class="card card-success">
                   <div class="card-header">
-                    <h3 class="card-title">Nilai Semester 3</h3>
+                    <h3 class="card-title">Nilai Pengetahuan Semester 3</h3>
                   </div>
                 </div>
                 <div class="card-body">
@@ -656,7 +656,7 @@
                 </div>
                 <div class="card card-success">
                   <div class="card-header">
-                    <h3 class="card-title">Nilai Semester 5</h3>
+                    <h3 class="card-title">Nilai Pengetahuan Semester 5</h3>
                   </div>
                 </div>
                 <div class="card-body">
@@ -709,19 +709,21 @@
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
+    <!--link rel="stylesheet" href="{{url('plugins/datatables-bs4/css/dataTables.bootstrap4.css') }}"-->
+    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" ></script-->
 @stop
 
 @section('js')
 <!-- jQuery -->
 <script src="../../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!--script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script-->
 <!-- bs-custom-file-input -->
 <script src="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
+<!--script src="../../dist/js/adminlte.min.js"></script-->
 <!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
+<!--script src="../../dist/js/demo.js"></script-->
 <!-- Page specific script -->
 <script>
 $(function () {
